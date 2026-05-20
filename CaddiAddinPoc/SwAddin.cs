@@ -46,7 +46,7 @@ namespace CaddiAddinPoc
                 cmdMgr.CreateCommandGroup2(
                     1,
                     "Caddi Tools",
-                    "Caddi Design Review Add-in",
+                    "Caddi Add-in",
                     "",
                     -1,
                     false,
@@ -55,8 +55,8 @@ namespace CaddiAddinPoc
             cmdGroup.AddCommandItem2(
                 "Open Review Panel",
                 -1,
-                "Open Caddi Issue Panel",
-                "Caddi Panel",
+                "Open Panel",
+                "Caddi",
                 0,
                 "OnOpenPanel",
                 "",
@@ -79,9 +79,9 @@ namespace CaddiAddinPoc
             if (taskPaneView == null)
             {
                 taskPaneView =
-                    swApp.CreateTaskpaneView2("", "Caddi Design Review");
+                    swApp.CreateTaskpaneView2("", "Caddi Review");
 
-                panelUI = new IssuePanel();
+                panelUI = new IssuePanel(swApp);
 
                 taskPaneView.DisplayWindowFromHandle(panelUI.Handle.ToInt32());
             }
